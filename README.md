@@ -76,5 +76,7 @@ Os dados são armazenados no LocalStorage do navegador, permitindo que as inform
 ---
 
 
+### Equipe: João Reis, Marcos, Caio, João Pedro Rpdrigues, Matheus Sá
+
 
 
