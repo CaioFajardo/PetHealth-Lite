@@ -14,22 +14,11 @@ const Header = () => {
               </span>
             </div>
             {/* Menu */}
-            <nav className="flex items-center gap-6 text-gray-600 font-medium">
-              <a
-                href="#"
-                className="px-4 py-2 rounded-full bg-emerald-100 text-emerald-600"
-              >
-                Home
-              </a>
-              <a href="#" className="hover:text-emerald-600 transition">
-                Pacientes
-              </a>
-              <a href="#" className="hover:text-emerald-600 transition">
-                Consultas
-              </a>
-              <a href="#" className="hover:text-emerald-600 transition">
-                Listagem
-              </a>
+            <nav className="flex items-center gap-6">
+              <NavLink className="hover:text-emerald-600 transition" to="/">Home</NavLink>
+              <NavLink className="hover:text-emerald-600 transition" to="/pets">Pets</NavLink>
+              <NavLink className="hover:text-emerald-600 transition" to="/consultas">Consultas</NavLink>
+              <NavLink className="hover:text-emerald-600 transition" to="/listagem">Listagem</NavLink>
             </nav>
           </div>
         </header>

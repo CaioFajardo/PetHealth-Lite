@@ -1,78 +1,8 @@
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { NavLink } from "react-router-dom";
+import Header from "../../components/header";
 
-interface Pet {
-  id: number;
-  nome: string;
-}
-
-interface Medico {
-  nome: string;
-  crmv: string;
-  especialidade: string;
-}
-
-const schema = z.object({
-  petId: z.string().min(1, "Selecione um pet"),
-  data: z.string().min(1, "Informe a data"),
-  horario: z.string().min(1, "Informe o horário"),
-  motivo: z.string().min(3, "Descreva o motivo"),
-});
-
-type FormData = z.infer<typeof schema>;
-
-
-
-export default function Consultas() { 
-  const [pets, setPets] = useState<Pet[]>([]);
-
-  const medico: Medico = {
-    nome: "Dr. Silva",
-    crmv: "12345",
-    especialidade: "Clínica Geral Veterinária",
-  };
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormData>({
-    resolver: zodResolver(schema),
-  });
-
-  useEffect(() => {
-    const petsSalvos = localStorage.getItem("pets");
-
-    if (petsSalvos) {
-      setPets(JSON.parse(petsSalvos));
-    }
-  }, []);
-
-  function onSubmit(data: FormData) {
-    const consultasSalvas = localStorage.getItem("consultas");
-
-    const novaConsulta = {
-      id: Date.now(),
-      ...data,
-      medico,
-    };
-
-    const listaAtual = consultasSalvas
-      ? JSON.parse(consultasSalvas)
-      : [];
-
-    localStorage.setItem(
-      "consultas",
-      JSON.stringify([...listaAtual, novaConsulta])
-    );
-
-    alert("Consulta agendada com sucesso!");
-    reset();
-  }
-
+export function Agendar() {
+    
   return (
   <div className="min-h-screen bg-gray-100">
     
