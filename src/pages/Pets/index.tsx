@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Header from "../../components/header";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -18,11 +18,15 @@ const petCadastro = z.object({
   nomeTutor: z
     .string()
     .min(3, "O nome do tutor deve ter no mínimo 3 caracteres"),
+  telefoneTutor: z
+    .string()
+    .min(10, "O telefone deve ter no mínimo 10 caracteres"),
 });
 
 type TypeForm = z.infer<typeof petCadastro>;
 
 export function Pets() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -33,6 +37,7 @@ export function Pets() {
 
   function onSubmit(data: TypeForm) {
     console.log("Dados enviados:", data);
+    navigate("/");
   }
 
   return (
@@ -126,6 +131,24 @@ export function Pets() {
               {errors.nomeTutor && (
                 <p className="text-red-500 text-sm mt-1">
                   {errors.nomeTutor.message}
+                </p>
+              )}
+            </div>
+
+            {/* Telefone do Tutor */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Telefone
+              </label>
+              <input
+                type="tel"
+                placeholder="(00) 00000-0000"
+                {...register("telefoneTutor")}
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition"
+              />
+              {errors.telefoneTutor && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.telefoneTutor.message}
                 </p>
               )}
             </div>

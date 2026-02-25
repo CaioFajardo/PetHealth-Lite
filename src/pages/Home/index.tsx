@@ -24,17 +24,19 @@ export function Home() {
       {/* Cards */}
       <section className="max-w-6xl mx-auto px-6 mt-16 grid md:grid-cols-3 gap-8">
         {/* Card 1 */}
-        <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-lg transition">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-xl bg-emerald-100 flex items-center justify-center text-2xl">
-            <FontAwesomeIcon icon={faPaw} />
+        <NavLink to="/pets" className="block">
+          <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-lg transition cursor-pointer h-full">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-xl bg-emerald-100 flex items-center justify-center text-2xl">
+              <FontAwesomeIcon icon={faPaw} />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800">
+              Cadastrar Pet
+            </h3>
+            <p className="mt-3 text-gray-500">
+              Registre novos pets e seus tutores no sistema.
+            </p>
           </div>
-          <h3 className="text-xl font-semibold text-gray-800">
-            Cadastrar Pet
-          </h3>
-          <p className="mt-3 text-gray-500">
-            Registre novos pets e seus tutores no sistema.
-          </p>
-        </div>
+        </NavLink>
 
         {/* Card 2 */}
         <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-lg transition">
