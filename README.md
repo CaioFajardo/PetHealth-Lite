@@ -43,7 +43,12 @@ export default defineConfig([
 ])
 ```
 
+HEAD
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+=======
+### Equipe: João Reis, Marcos, Caio, João Pedro Rpdrigues, Matheus Sá
+
+09f4e8c31bb82e5b5ba99231bd74dcf9fdf9015a
 
 ```js
 // eslint.config.js
